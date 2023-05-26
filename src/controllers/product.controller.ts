@@ -11,6 +11,12 @@ async function createProduct(req: Request, res: Response): Promise<Response> {
   return res.status(201).json(data.data);
 }
 
+async function findAll(req: Request, res: Response): Promise<Response> {
+  const data = await productsService.findAll();
+  return res.status(200).json(data.data);
+}
+
 export default {
   createProduct,
+  findAll,
 };
