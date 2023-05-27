@@ -8,4 +8,13 @@ function generateToken(user: User): string {
   return token;
 }
 
-export default { generateToken };
+function decodeToken(token: string): User | string {
+  try {
+    const decoded = jwt.verify(token, secret) as User;
+    return decoded;
+  } catch (err) {
+    return 'invalid token';
+  }
+}
+
+export default { generateToken, decodeToken };

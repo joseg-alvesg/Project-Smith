@@ -11,3 +11,9 @@ export type OrderWithId = {
   userId: number;
   productIds?: number[];
 };
+
+export type OrderwithoutId = {
+  id?: number;
+  userId: number;
+  productIds?: number[];
+};
