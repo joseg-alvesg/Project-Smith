@@ -9,6 +9,13 @@ async function findAll(req: Request, res: Response): Promise<Response> {
   return res.status(200).json(data.data);
 }
 
+async function orderCreate(req: Request, res: Response): Promise<Response> {
+  const { productIds, userId } = req.body;
+  const data = await ordersServices.orderCreate({ productIds, userId });
+  return res.status(201).json(data.data);
+}
+
 export default {
   findAll,
+  orderCreate,
 };
